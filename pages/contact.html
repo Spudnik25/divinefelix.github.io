@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Divine Felix</title>
+  <meta name="description" content="Start a project or book a call with Divine Felix — creative graphic designer.">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
+  <style>
+    .availability-badge {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      padding: 0.6rem 1.2rem;
+      background: rgba(34,197,94,0.1);
+      border: 1px solid rgba(34,197,94,0.3);
+      border-radius: 99px;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      color: #22c55e;
+      margin-bottom: 2rem;
+    }
+    .availability-dot {
+      width: 8px; height: 8px;
+      background: #22c55e; border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    .contact-methods { display: flex; flex-direction: column; gap: 1.5rem; }
+    .contact-method {
+      display: flex; align-items: center; gap: 1.2rem;
+      padding: 1.5rem;
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      transition: border-color 0.2s, transform 0.2s;
+      text-decoration: none;
+    }
+    .contact-method:hover { border-color: var(--accent); transform: translateX(6px); }
+    .contact-method-icon {
+      width: 48px; height: 48px;
+      background: var(--surface);
+      border-radius: var(--radius);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .contact-method-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-3);
+    }
+    .contact-method-value {
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+    .form-note {
+      font-size: 0.78rem;
+      color: var(--text-3);
+      margin-top: 1rem;
+      line-height: 1.6;
+    }
+    .book-call-card {
+      background: linear-gradient(135deg, var(--accent) 0%, #cc3100 100%);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+    }
+    .book-call-card h3 {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      color: #fff;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.5rem;
+    }
+    .book-call-card p {
+      color: rgba(255,255,255,0.75);
+      font-size: 0.88rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    .btn-cal { background: #fff; color: var(--accent); display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.75rem 1.5rem; border-radius: var(--radius); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; transition: background 0.2s; }
+    .btn-cal:hover { background: #f0f0f0; }
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+      padding: 1.5rem 0;
+    }
+    .faq-q {
+      font-size: 0.92rem;
+      font-weight: 500;
+      margin-bottom: 0.6rem;
+      cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center;
+      user-select: none;
+    }
+    .faq-q .chevron { transition: transform 0.3s; color: var(--text-2); }
+    .faq-item.open .chevron { transform: rotate(180deg); }
+    .faq-a {
+      font-size: 0.85rem;
+      color: var(--text-2);
+      line-height: 1.7;
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.4s var(--ease-out), opacity 0.3s;
+      opacity: 0;
+    }
+    .faq-item.open .faq-a { max-height: 200px; opacity: 1; }
+  </style>
+</head>
+<body>
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <nav class="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="../index.html" class="nav-logo">DF<span>.</span></a>
+        <ul class="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="portfolio.html">Work</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="testimonials.html">Reviews</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="contact.html" class="nav-cta">Start a Project</a>
+        <button class="nav-hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+  <div class="mobile-menu">
+    <a href="../index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="portfolio.html">Work</a>
+    <a href="services.html">Services</a>
+    <a href="testimonials.html">Reviews</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="container" style="position:relative;z-index:2;">
+      <div class="section-tag reveal"><div class="section-tag-line"></div><span class="label">Get in Touch</span></div>
+      <h1 class="display-lg reveal">Let's Build<br><em class="serif-xl">Something Great</em></h1>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- Left: Info -->
+        <div class="reveal-left">
+          <div class="availability-badge">
+            <div class="availability-dot"></div>
+            Currently accepting new projects
+          </div>
+
+          <div class="book-call-card">
+            <h3>Book a Free Call</h3>
+            <p>Not sure where to start? Let's jump on a free 30-minute discovery call to discuss your brand and see if we're a good fit.</p>
+            <a href="https://calendly.com/devisdesign205/30min" target="_blank" rel="noopener" class="btn-cal">📅 Schedule a Call</a>
+          </div>
+
+          <div class="contact-methods">
+            <a href="mailto:devisdesign205@gmail.com" class="contact-method">
+              <div class="contact-method-icon">✉</div>
+              <div>
+                <div class="contact-method-label">Email</div>
+                <div class="contact-method-value">devisdesign205@gmail.com</div>
+              </div>
+            </a>
+            <a href="https://wa.me/2349043281688" target="_blank" rel="noopener" class="contact-method">
+              <div class="contact-method-icon">💬</div>
+              <div>
+                <div class="contact-method-label">WhatsApp</div>
+                <div class="contact-method-value">+234 904 328 1688</div>
+              </div>
+            </a>
+            <a href="https://www.instagram.com/devis_design1?igsh=NGR2aHMza3V1dnh0" target="_blank" rel="noopener" class="contact-method">
+              <div class="contact-method-icon">IG</div>
+              <div>
+                <div class="contact-method-label">Instagram</div>
+                <div class="contact-method-value">@devis_design1</div>
+              </div>
+            </a>
+            <a href="https://www.behance.net/Devidesigns" target="_blank" rel="noopener" class="contact-method">
+              <div class="contact-method-icon">Be</div>
+              <div>
+                <div class="contact-method-label">Behance</div>
+                <div class="contact-method-value">Devidesigns</div>
+              </div>
+            </a>
+          </div>
+
+          <!-- FAQ -->
+          <div style="margin-top:3rem;">
+            <h3 class="display-md" style="font-size:2rem;margin-bottom:1.5rem;">FAQ</h3>
+            <div class="faq-item">
+              <div class="faq-q">What's your typical turnaround time? <span class="chevron">▾</span></div>
+              <div class="faq-a">Logo design typically takes 5–7 business days. Full brand identity takes 2–3 weeks. Social media packs take 3–5 days. Rush delivery available.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q">Do you work with international clients? <span class="chevron">▾</span></div>
+              <div class="faq-a">Yes — I work with clients worldwide. Most of my client base is in Nigeria, the UK, and North America. I accommodate different time zones.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q">How does payment work? <span class="chevron">▾</span></div>
+              <div class="faq-a">I require 50% upfront before work begins, with the remaining 50% due on delivery. I accept bank transfer, Paystack, and PayPal.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q">How many revisions are included? <span class="chevron">▾</span></div>
+              <div class="faq-a">Most packages include 2–3 structured revision rounds. Additional revisions beyond this are billed at a flat hourly rate.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Form -->
+        <div class="reveal">
+          <form class="contact-form" novalidate aria-label="Project inquiry form" id="contactForm">
+            <h3 style="font-family:var(--font-display);font-size:2rem;letter-spacing:0.04em;margin-bottom:2rem;">TELL ME ABOUT YOUR PROJECT</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fname">First Name *</label>
+                <input type="text" id="fname" name="fname" placeholder="Divine" required>
+              </div>
+              <div class="form-group">
+                <label for="lname">Last Name *</label>
+                <input type="text" id="lname" name="lname" placeholder="Felix" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" placeholder="hello@yourbrand.com" required>
+            </div>
+            <div class="form-group">
+              <label for="company">Company / Brand Name</label>
+              <input type="text" id="company" name="company" placeholder="Your Brand Ltd">
+            </div>
+            <div class="form-group">
+              <label for="service">Service Needed *</label>
+              <select id="service" name="service" required>
+                <option value="" disabled selected>Select a service</option>
+                <option value="logo">Logo Design</option>
+                <option value="brand">Brand Identity</option>
+                <option value="social">Social Media Design</option>
+                <option value="print">Flyers & Posters</option>
+                <option value="multiple">Multiple Services</option>
+                <option value="other">Not Sure — Let's Talk</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="budget">Estimated Budget</label>
+              <select id="budget" name="budget">
+                <option value="" disabled selected>Select a range</option>
+                <option>Under $100</option>
+                <option>$100 – $300</option>
+                <option>$300 – $600</option>
+                <option>$600 – $1,000</option>
+                <option>$1,000+</option>
+                <option>Open to Discussion</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="timeline">Project Timeline</label>
+              <select id="timeline" name="timeline">
+                <option value="" disabled selected>When do you need this?</option>
+                <option>ASAP (rush)</option>
+                <option>Within 1 week</option>
+                <option>Within 2 weeks</option>
+                <option>1 month+</option>
+                <option>Flexible</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Project Details *</label>
+              <textarea id="message" name="message" placeholder="Tell me about your brand, what you need, and what inspired you to reach out..." required></textarea>
+            </div>
+            <div class="form-group" style="flex-direction:row;align-items:flex-start;gap:0.75rem;">
+              <input type="checkbox" id="agree" name="agree" required style="width:auto;margin-top:2px;accent-color:var(--accent);">
+              <label for="agree" style="font-size:0.78rem;color:var(--text-2);text-transform:none;letter-spacing:0;cursor:pointer;">I agree to be contacted about my project inquiry. No spam, ever.</label>
+            </div>
+            <button type="submit" class="btn btn-primary form-submit" style="width:100%;justify-content:center;font-size:0.85rem;padding:1.1rem;">
+              Send Message →
+            </button>
+            <div id="form-success" style="display:none;margin-top:1.5rem;padding:1.2rem 1.5rem;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);border-radius:var(--radius);color:#22c55e;font-size:0.88rem;line-height:1.6;">
+              ✓ Message sent! I'll get back to you within 24 hours.
+            </div>
+            <div id="form-error" style="display:none;margin-top:1.5rem;padding:1.2rem 1.5rem;background:rgba(255,61,0,0.08);border:1px solid rgba(255,61,0,0.3);border-radius:var(--radius);color:var(--accent);font-size:0.88rem;line-height:1.6;">
+              Something went wrong. Please try again or email me directly at <a href="mailto:devisdesign205@gmail.com" style="color:var(--accent);text-decoration:underline;">devisdesign205@gmail.com</a>
+            </div>
+            <p class="form-note">Typical response time: within 24 hours. For urgent projects, WhatsApp is fastest.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="newsletter">
+    <div class="container">
+      <div class="newsletter-inner">
+        <div>
+          <div class="section-tag reveal"><div class="section-tag-line"></div><span class="label">Stay Connected</span></div>
+          <h3 class="display-md reveal" style="font-size:clamp(2rem,4vw,3rem);">Design Tips <em class="serif-xl">Weekly</em></h3>
+          <p class="reveal" style="color:var(--text-2);margin-top:0.5rem;font-size:0.9rem;">Brand insights, design tips, and behind-the-scenes. Zero spam.</p>
+        </div>
+        <form class="newsletter-form reveal" novalidate aria-label="Newsletter signup">
+          <input type="email" placeholder="your@email.com" aria-label="Email address" required>
+          <button type="submit" class="newsletter-btn">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo">DF<span>.</span></div>
+          <p>Creative graphic designer helping brands stand out.</p>
+          <div class="footer-socials">
+            <a href="https://www.instagram.com/devis_design1?igsh=NGR2aHMza3V1dnh0" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram">IG</a>
+            <a href="https://x.com/Devis_Designs" target="_blank" rel="noopener" class="social-icon" aria-label="Twitter">X</a>
+            <a href="https://www.behance.net/Devidesigns" target="_blank" rel="noopener" class="social-icon" aria-label="Behance">Be</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html">Logo Design</a></li>
+            <li><a href="services.html">Brand Identity</a></li>
+            <li><a href="services.html">Social Media</a></li>
+            <li><a href="services.html">Flyers & Posters</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:devisdesign205@gmail.com">devisdesign205@gmail.com</a></li>
+            <li><a href="https://wa.me/2349043281688" target="_blank" rel="noopener">WhatsApp</a></li>
+            <li><a href="https://calendly.com/devisdesign205/30min" target="_blank" rel="noopener">Book a Call →</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Divine Felix. All rights reserved.</p>
+        <p>Designed with <span style="color:var(--accent);">❤</span> by Divine Felix</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    // FAQ accordion
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.querySelector('.faq-q').addEventListener('click', () => {
+        const wasOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!wasOpen) item.classList.add('open');
+      });
+    });
+
+    // Contact form — Formspree
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+      contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const btn = contactForm.querySelector('.form-submit');
+        const successMsg = document.getElementById('form-success');
+        const errorMsg = document.getElementById('form-error');
+
+        // Basic validation
+        const required = contactForm.querySelectorAll('[required]');
+        let valid = true;
+        required.forEach(field => {
+          field.style.borderColor = '';
+          if (!field.value.trim() || (field.type === 'checkbox' && !field.checked)) {
+            field.style.borderColor = '#FF3D00';
+            valid = false;
+          }
+        });
+        if (!valid) return;
+
+        btn.textContent = 'Sending...';
+        btn.disabled = true;
+        successMsg.style.display = 'none';
+        errorMsg.style.display = 'none';
+
+        try {
+          const res = await fetch('https://formspree.io/f/xnjgbbnl', {
+            method: 'POST',
+            headers: { 'Accept': 'application/json' },
+            body: new FormData(contactForm)
+          });
+
+          if (res.ok) {
+            successMsg.style.display = 'block';
+            contactForm.reset();
+            btn.textContent = 'Send Message →';
+          } else {
+            throw new Error('Server error');
+          }
+        } catch {
+          errorMsg.style.display = 'block';
+          btn.textContent = 'Send Message →';
+        } finally {
+          btn.disabled = false;
+        }
+      });
+    }
+  </script>
+</body>
+</html>

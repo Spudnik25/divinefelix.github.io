@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio — Divine Felix</title>
+  <meta name="description" content="Explore Divine Felix's portfolio — logos, brand identities, social media designs, and poster projects.">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
+  <style>
+    .portfolio-full-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+    .portfolio-item {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      cursor: pointer;
+      transition: transform 0.3s var(--ease-out);
+    }
+    .portfolio-item:hover { transform: translateY(-4px); }
+    .portfolio-item:first-child { grid-column: 1 / -1; aspect-ratio: 16/7; }
+    .portfolio-item .work-bg { width:100%; height:100%; }
+    .portfolio-item .work-overlay { border-radius: var(--radius-lg); }
+    @media (max-width: 768px) {
+      .portfolio-full-grid { grid-template-columns: 1fr; }
+      .portfolio-item:first-child { aspect-ratio: 4/3; }
+    }
+
+    /* Case Study Modal */
+    .modal-overlay {
+      position: fixed; inset: 0;
+      background: rgba(8,8,8,0.96);
+      z-index: 1000;
+      display: flex; align-items: flex-start; justify-content: center;
+      padding: 2rem;
+      overflow-y: auto;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s var(--ease-out);
+    }
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+    .modal-content {
+      max-width: 900px; width: 100%;
+      padding-top: 4rem;
+      transform: translateY(30px);
+      transition: transform 0.4s var(--ease-out);
+    }
+    .modal-overlay.open .modal-content { transform: translateY(0); }
+    .modal-close {
+      position: fixed; top: 1.5rem; right: 2rem;
+      background: var(--surface); border: 1px solid var(--border);
+      color: var(--text); width: 44px; height: 44px;
+      border-radius: 50%; cursor: pointer;
+      font-size: 1.2rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s;
+      z-index: 1001;
+    }
+    .modal-close:hover { background: var(--accent); border-color: var(--accent); }
+  </style>
+</head>
+<body>
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <nav class="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="../index.html" class="nav-logo">DF<span>.</span></a>
+        <ul class="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="portfolio.html">Work</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="testimonials.html">Reviews</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="contact.html" class="nav-cta">Start a Project</a>
+        <button class="nav-hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+  <div class="mobile-menu">
+    <a href="../index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="portfolio.html">Work</a>
+    <a href="services.html">Services</a>
+    <a href="testimonials.html">Reviews</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="container" style="position:relative;z-index:2;">
+      <div class="section-tag reveal"><div class="section-tag-line"></div><span class="label">My Work</span></div>
+      <h1 class="display-lg reveal">Selected <em class="serif-xl">Projects</em></h1>
+      <p class="reveal delay-1" style="color:var(--text-2);max-width:500px;margin-top:1rem;">A curated selection of client work and personal projects spanning brand identity, logo design, and visual communication.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <!-- Filters -->
+      <div class="portfolio-filters">
+        <button class="filter-btn active" data-filter="all">All Work</button>
+        <button class="filter-btn" data-filter="brand">Brand Identity</button>
+        <button class="filter-btn" data-filter="logo">Logo Design</button>
+        <button class="filter-btn" data-filter="social">Social Media</button>
+        <button class="filter-btn" data-filter="print">Print Design</button>
+        <button class="filter-btn" data-filter="concept">Concepts</button>
+      </div>
+
+      <!-- Grid -->
+      <div class="portfolio-full-grid">
+
+        <div class="portfolio-item reveal" id="beez-bee" data-cat="brand" data-project="beez-bee" style="cursor:pointer;">
+          <div class="work-bg work-mock-1" style="background:none;padding:0;">
+            <img src="../{css,js,pages,assets/Photos/Flowbestie.png" alt="Flow Bestie Brand Identity" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div class="work-overlay">
+            <span class="work-category">Brand Identity · Client Project</span>
+            <h3 class="work-title">Flow Bestie</h3>
+          </div>
+          <div class="work-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H5M13 3V11" stroke="white" stroke-width="1.5"/></svg></div>
+        </div>
+
+        <div class="portfolio-item reveal delay-1" id="nexus" data-cat="logo" data-project="nexus">
+          <div class="work-bg work-mock-2" style="background:none;padding:0;">
+            <img src="../{css,js,pages,assets/Photos/logo board.png" alt="Flow Bestie Logo Design" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div class="work-overlay">
+            <span class="work-category">Logo Design · Client Project</span>
+            <h3 class="work-title">Flow Bestie</h3>
+          </div>
+          <div class="work-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H5M13 3V11" stroke="white" stroke-width="1.5"/></svg></div>
+        </div>
+
+        <div class="portfolio-item reveal delay-2" id="verde" data-cat="social" data-project="verde">
+          <div class="work-bg work-mock-3" style="background:none;padding:0;">
+            <img src="../{css,js,pages,assets/Photos/Delivery guy.png" alt="Momma's Kitchen Social Media Design" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div class="work-overlay">
+            <span class="work-category">Social Media · Client Project</span>
+            <h3 class="work-title">Momma's Kitchen</h3>
+          </div>
+          <div class="work-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H5M13 3V11" stroke="white" stroke-width="1.5"/></svg></div>
+        </div>
+
+        <div class="portfolio-item reveal delay-3" id="nova" data-cat="print" data-project="nova">
+          <div class="work-bg work-mock-4" style="background:none;padding:0;">
+            <img src="../{css,js,pages,assets/Photos/Lipton.png" alt="Lipton Poster Design" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div class="work-overlay">
+            <span class="work-category">Poster Design · Client Project</span>
+            <h3 class="work-title">Lipton</h3>
+          </div>
+          <div class="work-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H5M13 3V11" stroke="white" stroke-width="1.5"/></svg></div>
+        </div>
+
+        <div class="portfolio-item reveal" id="lux" data-cat="concept" data-project="lux" style="grid-column:1/-1;aspect-ratio:16/7;">
+          <div class="work-bg work-mock-5" style="background:none;padding:0;">
+            <img src="../{css,js,pages,assets/Photos/Gainmore mock.png" alt="Gainmore Brand Identity" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div class="work-overlay">
+            <span class="work-category">Brand Identity · Concept Project</span>
+            <h3 class="work-title">Gainmore</h3>
+          </div>
+          <div class="work-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H5M13 3V11" stroke="white" stroke-width="1.5"/></svg></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Study Modal -->
+  <div class="modal-overlay" id="projectModal" role="dialog" aria-modal="true" aria-label="Project case study">
+    <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+    <div class="modal-content" id="modalContent"></div>
+  </div>
+
+  <!-- CTA -->
+  <section class="cta-strip">
+    <div class="cta-strip-bg"></div>
+    <div class="container">
+      <div class="cta-strip-inner">
+        <h2 class="cta-strip-text">Like what<br>you <em>see?</em></h2>
+        <div style="display:flex;flex-direction:column;gap:1rem;align-items:flex-start;">
+          <p style="color:rgba(255,255,255,0.7);font-size:0.95rem;max-width:320px;">Let's create something amazing for your brand. I'm open to new projects.</p>
+          <a href="contact.html" class="btn btn-white">Start a Project →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo">DF<span>.</span></div>
+          <p>Creative graphic designer helping brands stand out.</p>
+          <div class="footer-socials">
+            <a href="https://www.instagram.com/devis_design1?igsh=NGR2aHMza3V1dnh0" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram">IG</a>
+            <a href="https://x.com/Devis_Designs" target="_blank" rel="noopener" class="social-icon" aria-label="Twitter">X</a>
+            <a href="https://www.behance.net/Devidesigns" target="_blank" rel="noopener" class="social-icon" aria-label="Behance">Be</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:devisdesign205@gmail.com">devisdesign205@gmail.com</a></li>
+            <li><a href="https://calendly.com/devisdesign205/30min" target="_blank" rel="noopener">Book a Call →</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Divine Felix. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    const projects = {
+      'beez-bee': {
+        title: 'FlowBestie',
+        category: 'Brand Identity — Client Project',
+        client: 'FlowBestie',
+        year: '2026',
+        scope: 'Logo, Brand Identity, Packaging Concept',
+        color: 'work-mock-1',
+        overview:'FlowBestie Initiative is a women-focused menstrual health and support initiative providing education, reminders, and access to safe, affordable period care—while supporting girls and women who struggle to afford pads. The goal was to create a logo that felt warm, supportive, feminine, and judgment‑free—more like a trusted best friend than a medical organization.',
+        problem: 'This project came with two major challenges: 1. Designing for a sensitive topic without leaning into medical or clinical visuals. 2. Building trust without an existing portfolio, relying purely on communication, clarity, and process. The logo needed to be: - Soft and friendly (not harsh or sterile) - Modern and minimal - Easily recognizable on mobile - Flexible for long‑term brand use',
+        process: ['Discovery & Research — Competitor audit, customer persona, mood boarding. Identified the gap between their premium quality and budget visual presentation.', 'Concept Development — Explored three distinct directions: bold geometric, hand-crafted artisan, and minimal modern. The client chose a refined blend of all three.', 'Refinement & Delivery — Iterated on typography, color, mark design across 3 rounds of feedback. Delivered full brand identity system with usage guidelines.'],
+        result: 'The client approved the concept immediately and expressed strong satisfaction with the final results. The final logo system is: - Emotionally aligned with the brand’s mission - Versatile across digital and print platforms - Built for long‑term brand consistency. This project marked my first official logo client—secured on the first day of the year.',
+        impact: 'After launch, the client reported a 40% increase in online sales and was accepted into 3 new retail stores within 2 months of rebranding.'
+      },
+      'nexus': {
+        title: 'FlowBestie',
+        category: 'Logo Design — Client Project',
+        client: 'FlowBestie',
+        year: '2026',
+        scope: 'Logo Design, Icon, Brand Colours',
+        color: 'work-mock-2',
+        overview: 'FlowBestie Initiative is a women-focused menstrual health and support initiative providing education, reminders, and access to safe, affordable period care—while supporting girls and women who struggle to afford pads. The goal was to create a logo that felt warm, supportive, feminine, and judgment‑free—more like a trusted best friend than a medical organization.',
+        problem: 'This project came with two major challenges: 1. Designing for a sensitive topic without leaning into medical or clinical visuals. 2. Building trust without an existing portfolio, relying purely on communication, clarity, and process. The logo needed to be: - Soft and friendly (not harsh or sterile) - Modern and minimal - Easily recognizable on mobile - Flexible for long‑term brand use',
+        process: ['Brand Discovery — Workshop with founding team to extract brand values: precision, connectivity, forward-thinking.', 'Logo Exploration — Explored 12+ concepts across abstract marks, lettermarks, and combination logos. Focused on geometric forms representing connectivity and systems.', 'Final Refinement — Selected a bold N lettermark with interlocking grid elements, refined spacing and proportions over multiple iterations.'],
+        result: 'The client approved the concept immediately and expressed strong satisfaction with the final results. The final logo system is: - Emotionally aligned with the brand’s mission - Versatile across digital and print platforms - Built for long‑term brand consistency. This project marked my first official logo client—secured on the first day of the year.',
+        impact: "The new identity helped the startup close their first ₦5M seed round, with investors noting the brand's professional presentation as a trust signal."
+      },
+      'verde': {
+        title: 'Momma’s Kitchen',
+        category: 'Social Media Design — Client Project',
+        client: 'Momma’s Kitchen',
+        year: '2024',
+        scope: 'Instagram Templates, Story Formats, Monthly Content Graphics',
+        color: 'work-mock-3',
+        overview: 'Momma’s Kitchen needed a social media promotional graphic to highlight its signature meal and attract customers online. The goal was to create an engaging design that encourages users to order through the mobile app.',
+        problem: "Food promotions compete for attention on crowded social media feeds. The design needed to instantly capture attention while clearly communicating the offer.",
+        process: ['Audit — Reviewed 90 days of content performance. Identified patterns in what resonated visually.', 'System Design — Built a modular template system with 6 post formats and 4 story formats, all using a consistent earthy green and cream palette.', 'Content Calendar Integration — Designed a 30-day content pack and documented the template usage guide for their in-house team.'],
+        result: 'The final design delivers a vibrant and engaging advertisement optimized for social media. It highlights the meal while encouraging customers to order through the mobile app.',
+        impact: 'Instagram engagement rate jumped from 1.8% to 5.4% in the first 60 days. Follower growth increased by 120% over 3 months.'
+      },
+      'nova': {
+        title: 'Lipton',
+        category: 'Poster & Print Design — Client Project',
+        client: 'Lipton.',
+        year: '2023',
+        scope: 'Event Poster, Digital Banners, Social Media Flyers',
+        color: 'work-mock-4',
+        overview: 'Reinforce Lipton’s refreshing brand identity while introducing a modern, health-forward matcha variant. Appeal to younger consumers seeking vibrant, natural beverage options.',
+        problem: "Differentiate Lipton Green Iced Tea Matcha in a saturated ready-to-drink beverage market. Communicate freshness, flavor, and health benefits instantly while maintaining strong shelf impact.",
+        process: ['Concept — Dark, high-energy aesthetic with dynamic typography and bold visual hierarchy. Strong focus on the headline artist\'s name.', 'Typography & Layout — Layered display type at dramatic angles, used glow effects and neon accents to create energy.', 'Output — Delivered A3 print poster, A4 flyer, 4 social formats, WhatsApp-optimised version, and digital billboard spec.'],
+        result: 'The design captures attention quickly in crowded retail spaces. It effectively communicates freshness, flavor, and vitality.',
+        impact: 'The poster was widely shared on Twitter and Instagram. Event sold out within 48 hours of the promotional material launch.'
+      },
+      'lux': {
+        title: 'GreenMart Superstore',
+        category: 'Brand Identity — Concept Project',
+        client: 'Personal/Concept Project',
+        year: '2025',
+        scope: 'Full Brand Identity System, Logo, Typography, Art Direction',
+        color: 'work-mock-5',
+        overview: 'GreenMart Superstore needed a promotional graphic to showcase its products and attract customers online. The goal was to design a clean, modern visual that communicates convenience and variety.',
+        problem: 'Retail promotions often become cluttered with too much information. The design needed to stay visually clean while clearly highlighting the store’s offerings.',
+        process: ['Research — Studied Louis Vuitton, Bottega Veneta, and emerging African luxury brands. Identified a gap for bold minimalism rooted in African geometric patterns.', 'Identity Concept — Built around the idea of "structured elegance." Used Adinkra symbol geometry as the foundation for the brand mark.', 'Full System — Developed colour palette (deep plum, matte gold, ivory), typography pairing, business card, clothing tag mockups, and brand guidelines.'],
+        result: 'The final design presents GreenMart as a fresh, modern, and customer-friendly supermarket brand. The promotional graphic communicates key offerings while maintaining a clean visual style.',
+        impact: 'Personal project used as part of portfolio. Generated 3 inbound client inquiries from fashion industry contacts after being shared on Behance.'
+      }
+    };
+
+    const modal = document.getElementById('projectModal');
+    const modalContent = document.getElementById('modalContent');
+    const modalClose = document.getElementById('modalClose');
+
+    document.querySelectorAll('.portfolio-item[data-project]').forEach(item => {
+      item.addEventListener('click', () => {
+        const key = item.dataset.project;
+        const p = projects[key];
+        if (!p) return;
+        modalContent.innerHTML = `
+          <div class="section-tag" style="margin-bottom:1rem;"><div class="section-tag-line"></div><span class="label">${p.category}</span></div>
+          <h2 class="display-md" style="margin-bottom:2rem;">${p.title}</h2>
+          <div class="project-hero-img ${p.color} work-inner-design" style="font-size:clamp(3rem,8vw,8rem);">${p.title.split(' ')[0].toUpperCase()}</div>
+          <div class="project-meta">
+            <div class="project-meta-item"><span class="label">Client</span><p>${p.client}</p></div>
+            <div class="project-meta-item"><span class="label">Year</span><p>${p.year}</p></div>
+            <div class="project-meta-item"><span class="label">Scope</span><p>${p.scope}</p></div>
+          </div>
+          <h3 style="font-family:var(--font-display);font-size:1.8rem;margin-bottom:1rem;letter-spacing:0.04em;">PROJECT OVERVIEW</h3>
+          <p style="color:var(--text-2);line-height:1.8;margin-bottom:2rem;">${p.overview}</p>
+          <h3 style="font-family:var(--font-display);font-size:1.8rem;margin-bottom:1rem;letter-spacing:0.04em;">THE CHALLENGE</h3>
+          <p style="color:var(--text-2);line-height:1.8;margin-bottom:2rem;">${p.problem}</p>
+          <h3 style="font-family:var(--font-display);font-size:1.8rem;margin-bottom:1.5rem;letter-spacing:0.04em;">DESIGN PROCESS</h3>
+          <div class="project-process-grid">
+            ${p.process.map((step, i) => `
+              <div class="process-step">
+                <div class="process-step-num">0${i+1}</div>
+                <h4>${step.split(' — ')[0]}</h4>
+                <p>${step.split(' — ')[1] || ''}</p>
+              </div>
+            `).join('')}
+          </div>
+          <h3 style="font-family:var(--font-display);font-size:1.8rem;margin-bottom:1rem;letter-spacing:0.04em;">THE RESULT</h3>
+          <p style="color:var(--text-2);line-height:1.8;margin-bottom:2rem;">${p.result}</p>
+          <div style="background:var(--accent);padding:2.5rem;border-radius:var(--radius-lg);margin-bottom:4rem;">
+            <span class="label" style="color:rgba(255,255,255,0.6);">Impact & Outcome</span>
+            <p style="color:#fff;font-size:1.05rem;line-height:1.7;margin-top:0.5rem;">${p.impact}</p>
+          </div>
+          <div style="text-align:center;padding-bottom:4rem;">
+            <a href="contact.html" class="btn btn-primary" style="margin:0 auto;">Start a Similar Project →</a>
+          </div>
+        `;
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    const closeModal = () => {
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+    };
+    modalClose.addEventListener('click', closeModal);
+    modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+  </script>
+</body>
+</html>
